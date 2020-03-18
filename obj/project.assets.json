@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SSC05\\Desktop\\Ditto\\c#\\Calculator\\Calculator.csproj",
+      "projectUniqueName": "C:\\Users\\SSC05\\Desktop\\Ditto\\c#\\C_Charp_Calculator\\Calculator.csproj",
       "projectName": "Calculator",
-      "projectPath": "C:\\Users\\SSC05\\Desktop\\Ditto\\c#\\Calculator\\Calculator.csproj",
+      "projectPath": "C:\\Users\\SSC05\\Desktop\\Ditto\\c#\\C_Charp_Calculator\\Calculator.csproj",
       "packagesPath": "C:\\Users\\SSC05\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SSC05\\Desktop\\Ditto\\c#\\Calculator\\obj\\",
+      "outputPath": "C:\\Users\\SSC05\\Desktop\\Ditto\\c#\\C_Charp_Calculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SSC05\\AppData\\Roaming\\NuGet\\NuGet.Config"
