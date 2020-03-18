@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using static System.Console;
 
 namespace Calculator
 {
@@ -12,31 +13,31 @@ namespace Calculator
             {
                 //Prompts user to enter a number, calls on the 'getNumber' method
                 //and stores the returned value in 'leftOperand' variable
-                Console.Clear();
-                Console.WriteLine("Please enter your first operand, then press enter. ( number )");
+                Clear();
+                WriteLine("Please enter your first operand, then press enter. ( number )");
                 decimal leftOperand = getNumber();
 
                 //Prompts user to select an operator, calls on the 'getOperator' method
                 //and stores the desired operator in 'operation' variable
-                Console.Clear();
-                Console.WriteLine($"{leftOperand}\n Please enter an operator, then press enter. ( +, -, *, or / )"); 
+                Clear();
+                WriteLine($"{leftOperand}\n Please enter an operator, then press enter. ( +, -, *, or / )"); 
                 string operation = getOperator();
 
                 //Prompts user to enter another number, calls on the 'getNumber' method
                 //and stores the returned value in 'rightOperand' variable
-                Console.Clear();
-                Console.WriteLine($"{leftOperand} {operation}\n Please enter your second operand, then press enter. ( number )");
+                Clear();
+                WriteLine($"{leftOperand} {operation}\n Please enter your second operand, then press enter. ( number )");
                 decimal rightOperand = getNumber();
 
                 //Passes the left operand, the right operand, and the operator 
                 //to the 'calculate' method. The returned message is displayed.
-                Console.Clear();
-                Console.WriteLine(calculate(leftOperand, rightOperand, operation) + "\n Would you like to perform another calculation? (Y/n)");
+                Clear();
+                WriteLine(calculate(leftOperand, rightOperand, operation) + "\n Would you like to perform another calculation? (Y/n)");
 
                 //If user wishes to continue, 'Y' or 'y' is the
                 //expected reply. Based on this value, loop
                 //continues or stops.
-                string reply = Console.ReadLine().ToLower();
+                string reply = ReadLine().ToLower();
                 run = reply == "y" ? true : false;
             }
         }
@@ -50,9 +51,9 @@ namespace Calculator
             decimal number = default;
             while(noNumber)
             {
-                if (!decimal.TryParse(Console.ReadLine(), out number))
+                if (!decimal.TryParse(ReadLine(), out number))
                 {
-                    Console.WriteLine($"Please enter a valid number, between {decimal.MinValue} & {decimal.MaxValue}.");
+                    WriteLine($"Please enter a valid number, between {decimal.MinValue} & {decimal.MaxValue}.");
                 }
                 else
                 {
@@ -71,11 +72,11 @@ namespace Calculator
             string operation = default;
             while(noOperator)
             {
-                operation = Console.ReadLine();
+                operation = ReadLine();
                 string[] symbols = {"+", "-", "*", "/"};
                 if(!symbols.Contains(operation))
                 {
-                    Console.WriteLine("Please enter a valid operator.");
+                    WriteLine("Please enter a valid operator.");
                 }
                 else
                 {
@@ -94,22 +95,14 @@ namespace Calculator
             string message = default;
             try
             {
-                decimal answer = default;
-                switch(operation)
+                decimal answer = operation switch
                 {
-                    case "+":
-                        answer = leftOperand + rightOperand;
-                        break;
-                    case "-":
-                        answer = leftOperand - rightOperand;
-                        break;
-                    case "*":
-                        answer = leftOperand * rightOperand;
-                        break;
-                    case "/":
-                        answer = leftOperand / rightOperand;
-                        break;
-                }
+                    "+" => leftOperand + rightOperand,
+                    "-" => leftOperand - rightOperand,
+                    "*" => leftOperand * rightOperand,
+                    "/" => leftOperand / rightOperand,
+                    _ => default
+                };
                 message = $"{leftOperand} {operation} {rightOperand} = {answer}";
             }
             catch (System.OverflowException)
