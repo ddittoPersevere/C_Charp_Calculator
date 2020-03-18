@@ -34,7 +34,7 @@ namespace Calculator
                 Clear();
                 WriteLine(calculate(leftOperand, rightOperand, operation) + "\n Would you like to perform another calculation? (Y/n)");
 
-                //If user wishes to continue, 'Y' or 'y' is the
+                //If user wishes to continue, "Y" or "y" is the
                 //expected reply. Based on this value, loop
                 //continues or stops.
                 string reply = ReadLine().ToLower();
